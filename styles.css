@@ -1,1 +1,42 @@
-
+.logo
+{
+    height: 120px;
+}
+#sign
+{
+    margin: 0 15px 15px 0;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    letter-spacing: 1px;
+    background-color: rgb(0, 174, 239);
+    border-radius: 0.285714rem;
+    width: 10rem;
+    height: 2.85714rem;
+    display: flex;
+    justify-content: center;
+    gap:1rem;
+    align-items: center;
+}
+body{
+    font-family: Poppins, sans-serif;
+    font-weight: normal;
+}
+nav{
+    font-size: 1.1rem;
+}
+.user
+{
+  height: 1.2rem;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+}
+.title
+{
+    color: rgb(0, 174, 239);
+    position:absolute;
+    right: 40%;
+}
