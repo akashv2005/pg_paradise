@@ -97,9 +97,15 @@
             text-decoration: none;
         }
 
+        .mid{
+            width: 85%;
+        }
+
         @media (max-width: 768px) {
             .container {
                 width: 70%;
+                /* display: flex; */
+                /* flex-direction: column; */
             }
 
             .wrapper {
@@ -116,10 +122,23 @@
                 font-size: 20px;
             }
 
+            .mid{
+                align-items: center;
+            }
+
+            .form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+
             input[type=text],
             input[type=password],
             .btn-info {
                 width: 100%;
+                text-align: center;
             }
         }
 
@@ -132,10 +151,23 @@
                 font-size: 18px;
             }
 
+            .mid{
+                align-items: center;
+            }
+
+            .form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+            }
+
             input[type=text],
             input[type=password],
             .btn-info {
+                width: 100%;
                 font-size: 14px;
+                text-align: center;
             }
         }
     </style>
@@ -149,8 +181,8 @@
         </div>
         <form class="form">
             <h2>Member Login</h2>
-            <input type="text" name="username" placeholder="Username" required="">
-            <input type="password" name="password" placeholder="Password" required="">
+            <input class="mid" type="text" name="username" placeholder="Username" required="">
+            <input class="mid" type="password" name="password" placeholder="Password" required="">
             <button class="btn-info">Login</button>
             <div class="forgot-div">
                 <a href="#">Forget password?</a>
