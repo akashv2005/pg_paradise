@@ -24,6 +24,7 @@ body{
 }
 nav{
     font-size: 1.1rem;
+    position: fixed;
 }
 .user
 {
@@ -39,4 +40,223 @@ nav{
     color: rgb(0, 174, 239);
     position:absolute;
     right: 40%;
+}
+#title
+{
+    font-weight: 500;
+}
+.hero
+{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.hero_content
+{
+    
+}
+.hero_title
+{
+   color: rgb(87, 84, 84);
+   position: relative;
+   top:20%;
+   left: 7%;
+   max-width: 80%;
+}
+#DataList
+{
+    width: 80%;
+    border: 1px solid rgb(87, 84, 84);
+    padding: 1rem;
+    position: relative;
+    top:24%;
+    left: 7%;
+}
+#hero_image
+{
+    max-width: 50vw;
+    margin-right: 20px;
+    border-radius: 12px;
+}
+.mobile_image
+{
+    display: none;
+}
+#location
+{
+    padding: 1rem;
+    position: relative;
+    top:11.5%;
+    left: 74%;
+    border: 1px solid rgb(87, 84, 84);
+}
+        .section-title {
+            text-align: center;
+            padding: 40px 20px 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #008080;
+            margin: 10px auto;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+footer
+{
+    background-color: rgb(202, 241, 255);
+    margin-top: 1rem;
+}
+body{
+    font-family: poppins;
+}
+.foot-list,.copy{
+   padding: 15px;
+}
+.foot-list li a{
+    text-decoration: none;
+    color: rgb(87, 84, 84);
+}
+.foot-list li a:hover{
+    color:rgb(0, 174, 239);
+}
+.foot 
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+h4
+{
+    color: rgb(87, 84, 84);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+hr{
+    color: white;
+}
+.contain
+{
+    padding: 20px;
+    font-size: larger;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+}
+.items li a
+{
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+.items li a:hover
+{
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 174, 239);
+    color: black;
+}
+@media(max-width:600px)
+{
+    .foot 
+    {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media only screen and (max-width:800px)
+{
+    .hero
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+    .hero_title
+{
+   color: rgb(87, 84, 84);
+}
+#DataList
+{
+    width: 80%;
+    border: 1px solid rgb(87, 84, 84);
+    padding: 1rem;
+    margin-top: 35px;
+}
+.hero_image
+{
+    display: none;
+}
+.mobile_image
+{
+    display: block;
+    margin-top: 90px;
+}
+#mobile_image
+{
+    max-width: 420px;
+    margin-left: 5px;
+}
+#location
+{
+    padding: 1rem;
+    position: relative;
+    top:-2.2%;
+    left: 72%;
+}
+}
+/* Responsive layout for tablets */
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive layout for mobile devices */
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
 }
