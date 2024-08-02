@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <!-- <link rel="stylesheet" href="(2.1)fitness tracker.html" -->
- 
- 
     <style>
         body {
             background-color: #E6E6E6;
             display: flex;
             justify-content: center;
-  			align-items: center;
-  			height: 100vh;
-           
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
         .container {
-         width:50%;   
-           
+            width: 50%;
+            max-width: 600px;
+            min-width: 300px;
         }
 
         .wrapper {
@@ -28,53 +26,50 @@
             flex-direction: row;
             align-items: center;
             border-radius: 25px;
-            padding-bottom:35px;
             padding: 22px 0;
-        }
-        
-		.img-div{
-        flex:.7;
-        display:flex;
-        justify-content:center;
-        }
-        
-        .form{
-        flex:1;
-        margin-top:20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
         }
 
-        p {
-            font-weight: bold;
+        .img-div {
+            flex: 0.7;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
         }
-        
-	h2{
-        font-size: 24px;
-    color: #333;
-    text-align: center;
-    width: 80%;
-    padding-bottom: 20px;
-}
+
+        .form {
+            flex: 1;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            width: 80%;
+            padding-bottom: 20px;
+            margin: 0 auto;
+        }
 
         input[type=text],
         input[type=password] {
-            
-            width:80%;
+            width: 80%;
             font-size: 15px;
-    		color: #666; 
-     		background: #e6e6e6;
-    		border-radius: 25px;
-    		padding:15px;
-            outline:none;
-            border:none;
+            color: #666;
+            background: #e6e6e6;
+            border-radius: 25px;
+            padding: 15px;
+            outline: none;
+            border: none;
+            margin: 10px 0;
         }
-		
+
         .btn-info {
             width: 85%;
             cursor: pointer;
-            border-radius: 18px;
             height: 50px;
-            outline:none;
-            border:none;
             font-size: 15px;
             color: #fff;
             text-transform: uppercase;
@@ -83,60 +78,84 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 10px 0;
             padding: 0 25px;
+            border: none;
+            outline: none;
         }
 
-        .forgot-div{
-        font-size: 13px;
-        color: #666;
-        width:85%;
-        text-align:center;
-        }
-
-		a{
-        color: #666;
-        }
-
-        .container form {
-            text-align: start;
-        }
-
-        .container form a {
-            text-decoration: none;
-        }
-
-        .container form button {
+        .forgot-div {
+            font-size: 13px;
+            color: #666;
+            width: 85%;
+            text-align: center;
             margin-top: 10px;
         }
 
+        a {
+            color: #666;
+            text-decoration: none;
+        }
 
+        @media (max-width: 768px) {
+            .container {
+                width: 70%;
+            }
 
+            .wrapper {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .img-div {
+                width: 100%;
+                padding-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            input[type=text],
+            input[type=password],
+            .btn-info {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            input[type=text],
+            input[type=password],
+            .btn-info {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-   
     <div class="wrapper">
-    <div class="img-div">
-    	<img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" 				alt="Logo" style="height:205px; width:230px">		
+        <div class="img-div">
+            <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="Logo" style="height:205px; width:230px">        
         </div>
-    <form class="form">
-    <h2>Member Login</h2>
-           <!-- <p style="text-align:start;">Email</p>-->
-            <input type="text" name="username" placeholder="Username" 						required="">
-            <br>
-            <br>
-            <!--  <p style="text-align:start;">Password</p>-->
-            <input type="password" name="password" placeholder="Password" 					required="">
-            <br>
-          	<br>
-            <button class="btn btn-info">Login</button>
-            <br><br>
+        <form class="form">
+            <h2>Member Login</h2>
+            <input type="text" name="username" placeholder="Username" required="">
+            <input type="password" name="password" placeholder="Password" required="">
+            <button class="btn-info">Login</button>
             <div class="forgot-div">
                 <a href="#">Forget password?</a>
-             </div>            
-      </form>
+            </div>            
+        </form>
     </div>
 </div>
 
