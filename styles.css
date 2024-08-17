@@ -1,156 +1,126 @@
-.logo
-{
-    height: 120px;
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'poppins';
+    color: #fff;
 }
-#sign
-{
-    margin: 0 15px 15px 0;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    letter-spacing: 1px;
-    background-color: rgb(0, 174, 239);
-    border-radius: 0.285714rem;
-    width: 10rem;
-    height: 2.85714rem;
-    display: flex;
-    justify-content: center;
-    gap:1rem;
-    align-items: center;
+html,body{
+    height: 100%;
+    width: 100%;
 }
-a
-{
+li a{
     color: white;
-    text-decoration: none;
-}
-body{
-    font-family: Poppins, sans-serif;
-    font-weight: normal;
 }
 nav{
-    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
     position: fixed;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.844);
 }
-.user
-{
-  height: 1.2rem;
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+    padding: 40px;
+    gap: 50px;
+    font-size: large;
 }
-*
-{
-    margin: 0;
-    padding: 0;
+nav ul li a{
+    text-decoration: none;
 }
-.title
-{
-    color: rgb(0, 174, 239);
-    position:absolute;
-    right: 40%;
+nav ul a:hover{
+    color:greenyellow;
 }
-#title
+#login_btn
 {
+    margin: 25px;
+}
+#image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+#main{
+    height: 320vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+#page1{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+#page1 h1{
+    font-size: 100px;
+    font-weight: 900;
+    position: relative;
+}
+#page1 h1::before{
+    content: "Your Perfect Home Away from Home";
+    position: absolute;
+    color: black;
+    top: -6px;
+    right: -6px;
+    -webkit-text-stroke: 2px #95C11E;
+    z-index: -1;
+}
+#page1 h2{
+    font-size: 30px;
+    font-weight: 800;
+}
+#page p{
+    font-size: 15px;
     font-weight: 500;
+    width: 40%;
 }
-.hero
-{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+#page2{
+    height: 100vh;
+    width:100%;
 }
-.hero_content
-{
-    
-}
-.hero_title
-{
-   color: rgb(87, 84, 84);
-   position: relative;
-   top:20%;
-   left: 7%;
-   max-width: 80%;
-}
-#DataList
-{
-    width: 80%;
-    border: 1px solid rgb(87, 84, 84);
-    padding: 1rem;
-    position: relative;
-    top:24%;
-    left: 7%;
-}
-#hero_image
-{
-    max-width: 50vw;
-    margin-right: 20px;
-    border-radius: 12px;
-}
-.mobile_image
-{
-    display: none;
-}
-#location
-{
-    padding: 1rem;
-    position: relative;
-    top:11.5%;
-    left: 74%;
-    border: 1px solid rgb(87, 84, 84);
-}
-        .section-title {
-            text-align: center;
-            padding: 40px 20px 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 50px;
-            height: 2px;
-            background-color: #008080;
-            margin: 10px auto;
-        }
+}
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.844);
+}
 
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
 
-        .card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+.image-container {
+    flex: 1;
+    padding-right: 20px;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
-        }
-
-        .card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #555;
-            font-size: 14px;
-            line-height: 1.5;
-        }
+.text-container {
+    flex: 2;
+}
 footer
 {
-    background-color: rgb(202, 241, 255);
+    background-color: black;
     margin-top: 1rem;
 }
 body{
@@ -161,101 +131,101 @@ body{
 }
 .foot-list li a{
     text-decoration: none;
-    color: rgb(87, 84, 84);
+    color: white;
 }
 .foot-list li a:hover{
-    color:rgb(0, 174, 239);
+    color:#95C11E;
 }
 .foot 
 {
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    margin-top: -16px;
 }
 h4
 {
-    color: rgb(87, 84, 84);
+    color:white;
     margin-bottom: 30px;
     font-weight: 700;
 }
-hr{
-    color: white;
+.section-title {
+    text-align: center;
+    padding: 40px 20px 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
-.contain
-{
-    padding: 20px;
-    font-size: larger;
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color:#95C11E;
+    margin: 10px auto;
+}
+
+.cards-container {
     display: grid;
-    grid-template-columns: 0.5fr 2fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
-.items li a
-{
-    text-decoration: none;
-    color: black;
-    font-size: larger;
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.844);
 }
-.items li a:hover
-{
-    text-decoration: underline;
-    text-decoration-color: rgb(0, 174, 239);
-    color: black;
+
+.card:hover {
+    transform: translateY(-5px);
 }
-@media(max-width:600px)
-{
+
+.card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
     .foot 
     {
         display: grid;
         grid-template-columns: repeat(2,1fr);
     }
+    .image-container, .text-container {
+        padding-right: 0;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+    }
 }
-@media only screen and (max-width:800px)
-{
-    .hero
-{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-    .hero_title
-{
-   color: rgb(87, 84, 84);
-}
-#DataList
-{
-    width: 80%;
-    border: 1px solid rgb(87, 84, 84);
-    padding: 1rem;
-    margin-top: 35px;
-}
-.hero_image
-{
-    display: none;
-}
-.mobile_image
-{
-    display: block;
-    margin-top: 90px;
-}
-#mobile_image
-{
-    max-width: 420px;
-    margin-left: 5px;
-}
-#location
-{
-    padding: 1rem;
-    position: relative;
-    top:-2.2%;
-    left: 72%;
-}
-}
-/* Responsive layout for tablets */
 @media (max-width: 1024px) {
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Responsive layout for mobile devices */
 @media (max-width: 600px) {
     .cards-container {
         grid-template-columns: 1fr;
@@ -263,5 +233,24 @@ hr{
 
     .section-title {
         font-size: 20px;
+    }
+}
+#pg{
+    padding: 5%;
+    font-weight: 900;
+    color: #95C11E;
+}
+
+@media screen and (max-width: 600px) {
+    .footer{
+        position: relative;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
     }
 }
