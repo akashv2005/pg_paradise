@@ -74,15 +74,7 @@ nav ul a:hover{
     font-weight: 900;
     position: relative;
 }
-#page1 h1::before{
-    content: "Your Perfect Home Away from Home";
-    position: absolute;
-    color: black;
-    top: -6px;
-    right: -6px;
-    -webkit-text-stroke: 2px #95C11E;
-    z-index: -1;
-}
+
 #page1 h2{
     font-size: 30px;
     font-weight: 800;
@@ -378,13 +370,17 @@ html, body {
     font-weight: 900;
     position: relative;
 }
-
+.search-bar{
+    padding: 10px;
+    border-radius: 10px;
+    
+}
 #page1 h1::before {
     content: "Your Perfect Home Away from Home";
     position: absolute;
     color: black;
-    top: -6px;
-    right: -6px;
+    top: -2px;
+    right: -2px;
     -webkit-text-stroke: 2px #95C11E;
     z-index: -1;
     font-size: 8vw;  /* Match with the h1 font size */
@@ -520,16 +516,15 @@ nav ul a:hover {
 
 @media (max-width: 600px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        height: auto;
+        display: flex;
+        height: 100px;
+        justify-content: space-between;
     }
 
     nav ul {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 5px;
     }
 
     .login button {
