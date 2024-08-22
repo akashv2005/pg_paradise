@@ -15,9 +15,11 @@ body{
 }
 .menu
 {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 12px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 12px;
     padding: 20px;
     margin-right: 10px;
+    height: max-content;
 }
 a{
     text-decoration: none;
@@ -32,10 +34,27 @@ a{
 h1{
     color: #95C11E;
 }
-.items li a:hover
+h2{
+    color: #95C11E;
+}
+h5{
+    
+    margin-top: 15px;
+    font-weight: 420;
+}
+h5:hover
 {
     text-decoration: none;
     color: #95C11E;
+}
+#DataList
+{
+  border: 1px solid #aaaaaa;
+  margin-bottom: 20px;
+}
+#DataList:hover
+{
+  border: 1px solid #95C11E;
 }
 #card
 {
@@ -67,6 +86,39 @@ h1{
     margin-left: 2px;
     border-radius: 10px;
 }
+footer
+{
+    background-color: black;
+    margin-top: 1rem;
+}
+body{
+    font-family: poppins;
+}
+.foot-list,.copy{
+   padding: 15px;
+}
+.foot-list li a{
+    text-decoration: none;
+    color: white;
+}
+.foot-list li a:hover{
+    color:#95C11E;
+}
+.foot 
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: -16px;
+}
+h4
+{
+    color:white;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.copy p{
+    color: white;
+}
 @media(max-width:700px)
 {
     .contain
@@ -76,6 +128,22 @@ h1{
     display: grid;
     grid-template-columns: 1fr;
 }
+.foot 
+    {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .footer{
+        position: relative;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+    }
 #card:hover
 {
     transform: scale(1.00);
