@@ -61,6 +61,7 @@ nav ul a:hover{
 #page1{
     height: 100vh;
     width: 100vw;
+    margin-top: 10%;
     position: relative;
     display: flex;
     justify-content: center;
@@ -357,5 +358,184 @@ html, body {
     }
     .footer-section {
         margin: 10px 0;
+    }
+}
+
+
+#page1 {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 10%;
+}
+
+#page1 h1 {
+    font-size: 8vw;  /* Responsive font size */
+    font-weight: 900;
+    position: relative;
+}
+
+#page1 h1::before {
+    content: "Your Perfect Home Away from Home";
+    position: absolute;
+    color: black;
+    top: -6px;
+    right: -6px;
+    -webkit-text-stroke: 2px #95C11E;
+    z-index: -1;
+    font-size: 8vw;  /* Match with the h1 font size */
+}
+
+#page1 h2 {
+    font-size: 5vw;  /* Responsive font size */
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
+#page1 p {
+    font-size: 3vw;  /* Responsive font size */
+    font-weight: 500;
+    width: 80%;
+    max-width: 600px;  /* Constrain maximum width */
+    margin-top: 1rem;
+}
+
+/* Further reduce font sizes and padding for very small screens */
+@media screen and (max-width: 600px) {
+    #page1 h1 {
+        font-size: 10vw;
+    }
+
+    #page1 h1::before {
+        font-size: 10vw;
+    }
+
+    #page1 h2 {
+        font-size: 6vw;
+    }
+
+    #page1 p {
+        font-size: 4vw;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.844);
+    padding: 0 20px;
+    transition: height 0.3s;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    font-size: 1.2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+nav ul a:hover {
+    color: greenyellow;
+}
+
+.login button {
+    padding: 10px 20px;
+    background-color: #95C11E;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login button a {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.login button:hover {
+    background-color: #7a9b18;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    nav {
+        height: 80px;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        gap: 20px;
+        font-size: 1rem;
+    }
+
+    .login button {
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        height: 70px;
+    }
+
+    nav ul {
+        font-size: 0.9rem;
+    }
+
+    .login button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .login button {
+        margin: 10px 0;
+        width: 100%;
+        padding: 8px;
+        font-size: 1rem;
     }
 }
