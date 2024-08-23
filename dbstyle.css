@@ -102,6 +102,10 @@ h5:hover
     margin-left: 2px;
     border-radius: 10px;
 }
+#directions
+{
+    color: blue;
+}
 footer
 {
     background-color:#0E2E50;
