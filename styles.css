@@ -14,13 +14,14 @@ body{
 }
 .btn
 {
-    background-color: #95C11E;
+    background-color: green;
     color: white;
     padding: 10px;
     font-size: large;
 }
 a{
     text-decoration: none;
+    color: white;
 }
 .hero-section {
     padding: 20px 0;
