@@ -28,7 +28,7 @@
                 <a class="nav-link active text-white fs-5" href="./dashboard.html">Explore</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-white fs-5" href="#">List Your Property</a>
+                <a class="nav-link active text-white fs-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">List Your Property</a>
               </li>
             </ul>
             <button class="btn btn-outline-success" type="ok"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -142,6 +142,63 @@
                 <p>© PG Paradise, All rights reserved.</p>
             </div>
           </footer>
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Property Listing</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="propertyForm">
+                    <div class="mb-3">
+                      <label for="imageInput" class="form-label">Image URL</label>
+                      <input type="text" class="form-control" id="imageInput" placeholder="Enter image URL">
+                    </div>
+                    <div class="mb-3">
+                      <label for="statusInput" class="form-label">Status</label>
+                      <input type="text" class="form-control" id="statusInput" placeholder="Enter status (e.g., For Sale)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="typeInput" class="form-label">Type</label>
+                      <input type="text" class="form-control" id="typeInput" placeholder="Enter type (e.g., Office)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="priceInput" class="form-label">Price</label>
+                      <input type="text" class="form-control" id="priceInput" placeholder="Enter price (e.g., ₹1,20,00,000)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="titleInput" class="form-label">Title</label>
+                      <input type="text" class="form-control" id="titleInput" placeholder="Enter title (e.g., Prime Location Office)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="locationInput" class="form-label">Location</label>
+                      <input type="text" class="form-control" id="locationInput" placeholder="Enter location (e.g., MG Road, Bangalore)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="personInput" class="form-label">Person</label>
+                      <input type="text" class="form-control" id="personInput" placeholder="Enter person (e.g., Male)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="bedsInput" class="form-label">Beds</label>
+                      <input type="text" class="form-control" id="bedsInput" placeholder="Enter beds (e.g., 2 Beds)">
+                    </div>
+                    <div class="mb-3">
+                      <label for="bathsInput" class="form-label">Baths</label>
+                      <input type="text" class="form-control" id="bathsInput" placeholder="Enter baths (e.g., 2 Baths)">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="saveProperty">Save Property</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <script src="index.js"></script>
         </body>
 </html>
