@@ -28,7 +28,7 @@
                 <a class="nav-link active text-white fs-5" href="./dashboard.html">Explore</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-white fs-5" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">List Your Property</a>
+                <a class="nav-link active text-white fs-5" href="#" data-bs-toggle="modal" data-bs-target="#addPropertyModal">List Your Property</a>
               </li>
             </ul>
             <button class="btn btn-outline-success" type="ok"><a href="./LoginPage-Final.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -145,59 +145,102 @@
           </footer>
 
           <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade" id="addPropertyModal" tabindex="-1" aria-labelledby="addPropertyModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Property Listing</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addPropertyModalLabel">Add New Property</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addPropertyForm">
+                            <div class="mb-3">
+                                <label for="propertyName" class="form-label">Property Name:</label>
+                                <input type="text" class="form-control" id="propertyName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="propertyAddress" class="form-label">Address:</label>
+                                <input type="text" class="form-control" id="propertyAddress" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="propertyRent" class="form-label">Monthly Rent ($):</label>
+                                <input type="number" class="form-control" id="propertyRent" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Number of Beds:</label>
+                                <div class="card-selection" id="bedSelection">
+                                    <div class="card-option" data-value="1">
+                                        <img src="https://t4.ftcdn.net/jpg/02/77/19/21/360_F_277192157_0btAp9C8TbXPz7vHRBMbxhgoe7XiZtcQ.jpg" alt="1 Bed">
+                                        <span>1</span>
+                                    </div>
+                                    <div class="card-option" data-value="2">
+                                        <img src="https://t4.ftcdn.net/jpg/02/77/19/21/360_F_277192157_0btAp9C8TbXPz7vHRBMbxhgoe7XiZtcQ.jpg" alt="2 Beds">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="card-option" data-value="3">
+                                        <img src="https://t4.ftcdn.net/jpg/02/77/19/21/360_F_277192157_0btAp9C8TbXPz7vHRBMbxhgoe7XiZtcQ.jpg" alt="3 Beds">
+                                        <span>3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="propertySharing" class="form-label">Sharing Type:</label>
+                                <select class="form-select" id="propertySharing" required>
+                                    <option value="Non-sharing">Non-sharing</option>
+                                    <option value="Sharing">Sharing</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Number of Rooms:</label>
+                                <div class="card-selection" id="roomSelection">
+                                    <div class="card-option" data-value="1">
+                                        <img src="https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png" alt="1 Room">
+                                        <span>1</span>
+                                    </div>
+                                    <div class="card-option" data-value="2">
+                                        <img src="https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png" alt="2 Rooms">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="card-option" data-value="3">
+                                        <img src="https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png" alt="3 Rooms">
+                                        <span>3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="propertyBathrooms" class="form-label">Number of Bathrooms:</label>
+                            
+                                  <div class="card-selection" id="propertyBathrooms">
+                                    <div class="card-option" data-value="1">
+                                        <img src="https://www.shutterstock.com/image-vector/bathroom-icon-logo-isolated-sign-600nw-2173035897.jpg" alt="1 Room">
+                                        <span>1</span>
+                                    </div>
+                                    <div class="card-option" data-value="2">
+                                        <img src="https://www.shutterstock.com/image-vector/bathroom-icon-logo-isolated-sign-600nw-2173035897.jpg" alt="2 Rooms">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="card-option" data-value="3">
+                                        <img src="https://www.shutterstock.com/image-vector/bathroom-icon-logo-isolated-sign-600nw-2173035897.jpg" alt="3 Rooms">
+                                        <span>3</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addProperty()">Add Property</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <form id="propertyForm">
-                    <div class="mb-3">
-                      <label for="imageInput" class="form-label">Image URL</label>
-                      <input type="text" class="form-control" id="imageInput" placeholder="Enter image URL">
-                    </div>
-                    <div class="mb-3">
-                      <label for="statusInput" class="form-label">Status</label>
-                      <input type="text" class="form-control" id="statusInput" placeholder="Enter status (e.g., For Sale)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="typeInput" class="form-label">Type</label>
-                      <input type="text" class="form-control" id="typeInput" placeholder="Enter type (e.g., Office)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="priceInput" class="form-label">Price</label>
-                      <input type="text" class="form-control" id="priceInput" placeholder="Enter price (e.g., ₹1,20,00,000)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="titleInput" class="form-label">Title</label>
-                      <input type="text" class="form-control" id="titleInput" placeholder="Enter title (e.g., Prime Location Office)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="locationInput" class="form-label">Location</label>
-                      <input type="text" class="form-control" id="locationInput" placeholder="Enter location (e.g., MG Road, Bangalore)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="personInput" class="form-label">Person</label>
-                      <input type="text" class="form-control" id="personInput" placeholder="Enter person (e.g., Male)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="bedsInput" class="form-label">Beds</label>
-                      <input type="text" class="form-control" id="bedsInput" placeholder="Enter beds (e.g., 2 Beds)">
-                    </div>
-                    <div class="mb-3">
-                      <label for="bathsInput" class="form-label">Baths</label>
-                      <input type="text" class="form-control" id="bathsInput" placeholder="Enter baths (e.g., 2 Baths)">
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="saveProperty">Save Property</button>
-                </div>
-              </div>
             </div>
+        </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" onclick="addProperty()">Add Property</button>
+                  </div>
+              </div>
+          </div>
           </div>
 
         <script src="index.js"></script>
