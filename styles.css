@@ -152,7 +152,10 @@
   .hover-card:hover .card-overlay {
     opacity: 1; /* Fade in effect on hover */
   }
-  
+  #locationSearch
+  {
+    padding: 14px;
+  }
   .overlay-text {
     color: white;
     text-align: center;
