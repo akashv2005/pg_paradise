@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Checkout Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f9f5eb;
+            color: #4e3b31;
+            font-family: Arial, sans-serif;
+        }
+
+        .checkout-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary, .btn-secondary {
+            width: 100%;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout-container">
+        <h1 class="checkout-header">Checkout</h1>
+
+        <!-- Step 1: Billing & Shipping Info -->
+        <div id="userInfoSection" class="form-section active">
+            <h4>Billing & Shipping Info</h4>
+            <input type="text" class="form-control" placeholder="Full Name" id="fullName">
+            <input type="email" class="form-control" placeholder="Email" id="email">
+            <input type="text" class="form-control" placeholder="Address" id="address">
+            <input type="text" class="form-control" placeholder="City" id="city">
+            <input type="text" class="form-control" placeholder="Zip Code" id="zipCode">
+            <input type="text" class="form-control" placeholder="Phone Number" id="phoneNumber">
+
+            <button class="btn btn-secondary" id="goToPaymentBtn">Continue to Payment</button>
+        </div>
+
+        <!-- Step 2: Payment Method Selection -->
+        <div id="paymentSection" class="form-section">
+            <h4>Select Payment Method</h4>
+            <select class="form-select" id="paymentMethod">
+                <option value="" selected disabled>Select a payment method</option>
+                <option value="card">Debit/Credit Card</option>
+                <option value="upi">UPI</option>
+                <option value="cod">Cash on Delivery (COD)</option>
+            </select>
+
+            <!-- Card Payment Section -->
+            <div id="cardSection" class="form-section">
+                <h4>Debit/Credit Card Details</h4>
+                <input type="text" class="form-control" placeholder="Cardholder Name" id="cardName">
+                <input type="text" class="form-control" placeholder="Card Number" id="cardNumber">
+                <input type="text" class="form-control" placeholder="Expiry Date (MM/YY)" id="cardExpiry">
+                <input type="text" class="form-control" placeholder="CVV" id="cardCVV">
+            </div>
+
+            <!-- UPI Payment Section -->
+            <div id="upiSection" class="form-section">
+                <h4>UPI Payment</h4>
+                <input type="text" class="form-control" placeholder="UPI ID" id="upiId">
+                <button class="btn btn-secondary" id="verifyUpi">Verify UPI ID</button>
+            </div>
+
+            <!-- Cash on Delivery (COD) Section -->
+            <div id="codSection" class="form-section">
+                <h4>Cash on Delivery (COD)</h4>
+                <p>Make payment when your order is delivered. Please choose one of the following options:</p>
+                <select class="form-select" id="codOptions">
+                    <option value="exactAmount">I will pay the exact amount</option>
+                    <option value="requestChange">I need change for a larger bill</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" id="completeCheckoutBtn">Complete Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Selectors for form sections
+        const userInfoSection = document.getElementById('userInfoSection');
+        const paymentSection = document.getElementById('paymentSection');
+        const paymentMethod = document.getElementById('paymentMethod');
+        const cardSection = document.getElementById('cardSection');
+        const upiSection = document.getElementById('upiSection');
+        const codSection = document.getElementById('codSection');
+
+        // Selectors for buttons
+        const goToPaymentBtn = document.getElementById('goToPaymentBtn');
+        const completeCheckoutBtn = document.getElementById('completeCheckoutBtn');
+        const verifyUpiButton = document.getElementById('verifyUpi');
+
+        // Step 1: User Info - Continue to Payment
+        goToPaymentBtn.addEventListener('click', function () {
+            // Validate user info inputs
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zipCode = document.getElementById('zipCode').value;
+            const phoneNumber = document.getElementById('phoneNumber').value;
+
+            if (fullName && email && address && city && zipCode && phoneNumber) {
+                // Hide user info section, show payment section
+                userInfoSection.classList.remove('active');
+                paymentSection.classList.add('active');
+            } else {
+                alert('Please fill all billing & shipping info fields.');
+            }
+        });
+
+        // Handle Payment Method Change
+        paymentMethod.addEventListener('change', function () {
+            const selectedMethod = paymentMethod.value;
+
+            if (selectedMethod === 'card') {
+                cardSection.style.display = 'block';
+                upiSection.style.display = 'none';
+                codSection.style.display = 'none';
+            } else if (selectedMethod === 'upi') {
+                cardSection.style.display = 'none';
+                upiSection.style.display = 'block';
+                codSection.style.display = 'none';
+            } else if (selectedMethod === 'cod') {
+                cardSection.style.display = 'none';
+                upiSection.style.display = 'none';
+                codSection.style.display = 'block';
+            } else {
+                cardSection.style.display = 'none';
+                upiSection.style.display = 'none';
+                codSection.style.display = 'none';
+            }
+        });
+
+        // Step 2: Payment - Complete Checkout
+        completeCheckoutBtn.addEventListener('click', function () {
+            const selectedMethod = paymentMethod.value;
+
+            if (selectedMethod === 'card') {
+                // Capture card details
+                const cardName = document.getElementById('cardName').value;
+                const cardNumber = document.getElementById('cardNumber').value;
+                const cardExpiry = document.getElementById('cardExpiry').value;
+                const cardCVV = document.getElementById('cardCVV').value;
+
+                if (cardName && cardNumber && cardExpiry && cardCVV) {
+                    alert('Card payment processed!');
+                } else {
+                    alert('Please fill all card details.');
+                }
+
+            } else if (selectedMethod === 'upi') {
+                // Capture UPI details
+                const upiId = document.getElementById('upiId').value;
+
+                if (upiId) {
+                    alert('UPI payment processed!');
+                } else {
+                    alert('Please enter UPI ID.');
+                }
+
+            } else if (selectedMethod === 'cod') {
+                // Handle Cash on Delivery options
+                const codOption = document.getElementById('codOptions').value;
+                if (codOption === 'exactAmount') {
+                    alert('You chose to pay the exact amount on delivery.');
+                } else if (codOption === 'requestChange') {
+                    alert('You requested change for a larger bill.');
+                }
+            } else {
+                alert('Please select a payment method.');
+            }
+        });
+
+        // Verify UPI ID button logic
+        verifyUpiButton.addEventListener('click', function () {
+            const upiId = document.getElementById('upiId').value;
+
+            if (upiId) {
+                alert('UPI ID verified successfully!');
+            } else {
+                alert('Please enter UPI ID.');
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
