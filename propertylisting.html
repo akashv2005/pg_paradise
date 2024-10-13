@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property - PG Paradise</title>
+    <link rel="shortcut icon" href="./images/icon-deal.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        #nav {
+            background-color: rgba(0, 0, 0, 0.744);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        #nav img {
+            height: 40px;
+        }
+        #nav h4 a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        #nav h4 a:hover {
+            color: #95c11e;
+        }
+        .listing-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            color: #556B2F;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #555;
+        }
+        .btn-primary {
+            background-color: #556B2F;
+            border-color: #556B2F;
+            font-weight: 600;
+            padding: 10px 20px;
+        }
+        .btn-primary:hover {
+            background-color: #4a5c28;
+            border-color: #4a5c28;
+        }
+        #propertyList {
+            margin-top: 30px;
+        }
+        .property-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #95c11e;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.879);
+            color: white;
+            padding: 30px 0;
+        }
+        .foot-list li a {
+            color: white;
+            text-decoration: none;
+        }
+        .foot-list li a:hover {
+            color: #95c11e;
+        }
+        .foot-list h3 {
+            color: #95c11e;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav" class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="./index.html">
+                <img src="./images/icon-deal.png" alt="PG Paradise Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <h4><a class="nav-link" href="./index.html">Home</a></h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4><a class="nav-link" href="./dashboard.html">Explore</a></h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4><a class="nav-link" href="#">About Us</a></h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4><a class="nav-link" href="./LoginPage-Final.html" style="color:greenyellow;">Login</a></h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4><a class="nav-link cart-icon" href="./checkout.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a></h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row listing-container">
+            <div class="col-lg-12">
+                <h1>List Your Property</h1>
+                <form id="property-form">
+                    <div class="mb-3">
+                        <label for="propertyName" class="form-label">Property Name</label>
+                        <input type="text" class="form-control" id="propertyName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="propertyType" class="form-label">Property Type</label>
+                        <select class="form-select" id="propertyType" required>
+                            <option value="">Choose...</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="House">House</option>
+                            <option value="Villa">Villa</option>
+                            <option value="Office">Office</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="propertyLocation" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="propertyLocation" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="propertyPrice" class="form-label">Price (per month)</label>
+                        <input type="number" class="form-control" id="propertyPrice" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="propertyDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="propertyDescription" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">List Property</button>
+                </form>
+            </div>
+        </div>
+        <div id="propertyList" class="row">
+            <!-- Property listings will be dynamically added here -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="foot-list list-unstyled">
+                        <li><h3>Get To Know Us</h3></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="foot-list list-unstyled">
+                        <li><h3>Quick Links</h3></li>
+                        <li><a href="#">Find PG Near You</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="foot-list list-unstyled">
+                        <li><h3>Stay Connected</h3></li>
+                        <li><a href="#"><i class="bi bi-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="bi bi-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="bi bi-twitter-x"></i> Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <ul class="foot-list list-unstyled">
+                        <li><h3>Customer Support</h3></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Ask a Question</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <p class="text-center">&copy; 2024 PG Paradise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let properties = [];
+        let cart = [];
+
+        document.getElementById('property-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const property = {
+                id: Date.now(),
+                name: document.getElementById('propertyName').value,
+                type: document.getElementById('propertyType').value,
+                location: document.getElementById('propertyLocation').value,
+                price: parseFloat(document.getElementById('propertyPrice').value),
+                description: document.getElementById('propertyDescription').value
+            };
+            properties.push(property);
+            updatePropertyList();
+            this.reset();
+        });
+
+        function updatePropertyList() {
+            const propertyList = document.getElementById('propertyList');
+            propertyList.innerHTML = '';
+            properties.forEach(property => {
+                const propertyCard = document.createElement('div');
+                propertyCard.className = 'col-md-4';
+                propertyCard.innerHTML = `
+                    <div class="property-card">
+                        <h3>${property.name}</h3>
+                        <p><strong>Type:</strong> ${property.type}</p>
+                        <p><strong>Location:</strong> ${property.location}</p>
+                        <p><strong>Price:</strong> ₹${property.price}/month</p>
+                        <p>${property.description}</p>
+                        <button class="btn btn-primary" onclick="addToCart(${property.id})">Add to Cart</button>
+                    </div>
+                `;
+                propertyList.appendChild(propertyCard);
+            });
+        }
+
+        function addToCart(propertyId) {
+            const property = properties.find(p => p.id === propertyId);
+            if (property) {
+                cart.push(property);
+                updateCartCount();
+                alert(`${property.name} added to cart!`);
+            }
+        }
+
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            cartCount.textContent = cart.length;
+        }
+
+        // Initialize with some sample properties
+        properties = [
+            {id: 1, name: "Cozy Studio Apartment", type: "Apartment", location: "Mumbai", price: 15000, description: "A comfortable studio apartment in the heart of Mumbai."},
+            {id: 2, name: "Spacious 2BHK", type: "House", location: "Delhi", price: 25000, description: "A spacious 2BHK house perfect for families."},
+            {id: 3, name: "Luxury Villa", type: "Villa", location: "Goa", price: 50000, description: "A luxurious villa with a private pool in Goa."}
+        ];
+        updatePropertyList();
+    </script>
+</body>
+</html>
