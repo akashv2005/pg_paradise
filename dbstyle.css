@@ -96,6 +96,22 @@ h5:hover
     box-shadow: 8px 8px 4px #aaaaaa;
     border: 1px solid lightgray;
 }
+.modal {
+    z-index: 1050; /* Ensure modal stays on top */
+  }
+  .modal-backdrop {
+    z-index: 1040; /* Ensure backdrop is just beneath the modal */
+  }
+  .modal-body img {
+    z-index: 1060; /* Make image clickable above other elements */
+    position: relative;
+    display: block;
+  }
+  .modal-body img {
+    pointer-events: auto; /* Ensure clicks are registered */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+    
 .row
 {
     padding: 15px;
