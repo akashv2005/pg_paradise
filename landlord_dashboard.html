@@ -71,6 +71,28 @@
             width: 50px;
             text-align: center;
         }
+
+        .landlord-info {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .landlord-info img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .landlord-info div {
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -87,12 +109,23 @@
                     </li>
                 </ul>
                 <button class="btn me-2" data-bs-toggle="modal" data-bs-target="#addPropertyModal">List Your Property</button>
-                <button class="btn btn-outline-success"><a href="./LoginPage-Final.html" style="color: white;">Logout</a></button>
+                <button class="btn btn-outline-success"><a href="./LoginPage-Final.html" style="color: white; text-decoration: none;">Logout</a></button>
             </div>
         </div>
     </nav>
 
     <div class="container">
+        <!-- Landlord Information Section -->
+        <div class="landlord-info">
+            <img src="https://www.freeiconspng.com/thumbs/person-icon/clipart--person-icon--cliparts-15.png" alt="Landlord Profile Logo" id="landlordProfileLogo">
+            <div>
+                <h5 id="landlordName">Rohit Sharma </h5>
+                <p></p>
+                <p id="landlordPhone">Phone: +91 98765 43210</p>
+                <p id="landlordMail">Email ID: rohitsharma15@gmail.com</p>
+            </div>
+        </div>
+
         <h3>Your Properties</h3>
         <div class="properties" id="propertiesList">
             <!-- Property cards will be dynamically added here -->
@@ -116,6 +149,19 @@
                         <div class="mb-3">
                             <label for="propertyAddress" class="form-label">Address</label>
                             <input type="text" class="form-control" id="propertyAddress" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="propertyState" class="form-label">State</label>
+                            <select class="form-select" id="propertyState" required>
+                                <option value="">Select State</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <!-- Add more states as needed -->
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="propertyRent" class="form-label">Rent (₹)</label>
@@ -142,6 +188,14 @@
                                 <input type="number" id="propertyBathrooms" min="1" max="2" required>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sharing Option</label>
+                            <select class="form-select" id="propertySharing" required>
+                                <option value="">Select Sharing Option</option>
+                                <option value="Sharing">Sharing</option>
+                                <option value="Non-sharing">Non-sharing</option>
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-success w-100">Add Property</button>
                     </form>
                 </div>
@@ -160,8 +214,9 @@
                     <div class="property-card">
                         <div class="property-info">
                             <h5>${property.name}</h5>
-                            <p><strong>Location:</strong> ${property.address}</p>
+                            <p><strong>Location:</strong> ${property.address}, ${property.state}</p>
                             <p><strong>Rent:</strong> ₹${property.rent}</p>
+                            <p><strong>Sharing:</strong> ${property.sharing}</p>
                         </div>
                         <div>
                             <p><img src="https://img.icons8.com/ios-filled/50/000000/bed.png" class="icon" /> ${property.beds} Beds</p>
@@ -180,10 +235,12 @@
             const newProperty = {
                 name: document.getElementById('propertyName').value,
                 address: document.getElementById('propertyAddress').value,
+                state: document.getElementById('propertyState').value,
                 rent: document.getElementById('propertyRent').value,
                 beds: document.getElementById('propertyBeds').value,
                 rooms: document.getElementById('propertyRooms').value,
-                bathrooms: document.getElementById('propertyBathrooms').value
+                bathrooms: document.getElementById('propertyBathrooms').value,
+                sharing: document.getElementById('propertySharing').value
             };
             properties.push(newProperty);
             localStorage.setItem('properties', JSON.stringify(properties));
