@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landlord Dashboard - PG Paradise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        #navbar {
+            background-color: rgba(0, 0, 0, 0.844);
+            height: 100px;
+            padding: 0 20px 0 40px;
+        }
+
+        .btn {
+            background-color: #95c11e;
+            color: white;
+            padding: 10px;
+            font-size: large;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .property-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .property-info {
+            max-width: 70%;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        h3 {
+            color: #95c11e;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .icon-selection {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .icon-selection input {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-5" href="#"><img src="./images/icon-deal.png"></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white fs-5" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white fs-5" href="./landlord_dashboard.html">Dashboard</a>
+                    </li>
+                </ul>
+                <button class="btn me-2" data-bs-toggle="modal" data-bs-target="#addPropertyModal">List Your Property</button>
+                <button class="btn btn-outline-success"><a href="./LoginPage-Final.html" style="color: white;">Logout</a></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3>Your Properties</h3>
+        <div class="properties" id="propertiesList">
+            <!-- Property cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Add Property Modal -->
+    <div class="modal fade" id="addPropertyModal" tabindex="-1" aria-labelledby="addPropertyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPropertyModalLabel">List Your Property</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="propertyForm">
+                        <div class="mb-3">
+                            <label for="propertyName" class="form-label">Property Name</label>
+                            <input type="text" class="form-control" id="propertyName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="propertyAddress" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="propertyAddress" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="propertyRent" class="form-label">Rent (₹)</label>
+                            <input type="number" class="form-control" id="propertyRent" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Number of Beds</label>
+                            <div class="icon-selection">
+                                <img src="https://img.icons8.com/ios-filled/50/000000/bed.png" class="icon" />
+                                <input type="number" id="propertyBeds" min="1" max="3" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Number of Rooms</label>
+                            <div class="icon-selection">
+                                <img src="https://img.icons8.com/ios-filled/50/000000/door.png" class="icon" />
+                                <input type="number" id="propertyRooms" min="1" max="3" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Number of Bathrooms</label>
+                            <div class="icon-selection">
+                                <img src="https://img.icons8.com/ios-filled/50/000000/shower.png" class="icon" />
+                                <input type="number" id="propertyBathrooms" min="1" max="2" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Add Property</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const propertiesList = document.getElementById('propertiesList');
+        let properties = JSON.parse(localStorage.getItem('properties')) || [];
+
+        function renderProperties() {
+            propertiesList.innerHTML = '';
+            properties.forEach((property, index) => {
+                const propertyCard = `
+                    <div class="property-card">
+                        <div class="property-info">
+                            <h5>${property.name}</h5>
+                            <p><strong>Location:</strong> ${property.address}</p>
+                            <p><strong>Rent:</strong> ₹${property.rent}</p>
+                        </div>
+                        <div>
+                            <p><img src="https://img.icons8.com/ios-filled/50/000000/bed.png" class="icon" /> ${property.beds} Beds</p>
+                            <p><img src="https://img.icons8.com/ios-filled/50/000000/door.png" class="icon" /> ${property.rooms} Rooms</p>
+                            <p><img src="https://img.icons8.com/ios-filled/50/000000/shower.png" class="icon" /> ${property.bathrooms} Bathrooms</p>
+                            <button class="btn btn-danger" onclick="deleteProperty(${index})">Delete</button>
+                        </div>
+                    </div>
+                `;
+                propertiesList.innerHTML += propertyCard;
+            });
+        }
+
+        document.getElementById('propertyForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const newProperty = {
+                name: document.getElementById('propertyName').value,
+                address: document.getElementById('propertyAddress').value,
+                rent: document.getElementById('propertyRent').value,
+                beds: document.getElementById('propertyBeds').value,
+                rooms: document.getElementById('propertyRooms').value,
+                bathrooms: document.getElementById('propertyBathrooms').value
+            };
+            properties.push(newProperty);
+            localStorage.setItem('properties', JSON.stringify(properties));
+            renderProperties();
+            document.getElementById('propertyForm').reset();
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addPropertyModal'));
+            modal.hide();
+        });
+
+        function deleteProperty(index) {
+            properties.splice(index, 1);
+            localStorage.setItem('properties', JSON.stringify(properties));
+            renderProperties();
+        }
+
+        renderProperties();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

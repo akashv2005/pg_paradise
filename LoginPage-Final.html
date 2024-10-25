@@ -12,8 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-image: url(https://www.decorpot.com/images/blogimage1361284108interior-designs-for-master-bedroom.jpg);
-            background-repeat: no-repeat;
+            background-image: url('https://www.decorpot.com/images/blogimage1361284108interior-designs-for-master-bedroom.jpg');
             background-size: cover;
         }
 
@@ -25,13 +24,12 @@
 
         .wrapper {
             background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: row;
-            align-items: center;
             border-radius: 25px;
             padding: 22px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .img-div {
@@ -45,153 +43,80 @@
             flex: 1;
             margin-top: 20px;
             padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h2 {
-            font-size: 24px;
-            color: #E6E6E6;
-            text-align: center;
+        input {
             width: 80%;
-            padding-bottom: 20px;
-            margin: 0 auto;
-        }
-
-        input[type=text],
-        input[type=password] {
-            width: 80%;
-            font-size: 15px;
-            color: #666;
-            background: #e6e6e6;
-            border-radius: 25px;
             padding: 15px;
-            outline: none;
-            border: none;
             margin: 10px 0;
+            border: none;
+            border-radius: 25px;
+            outline: none;
         }
 
         .btn-info {
             width: 85%;
-            cursor: pointer;
             height: 50px;
-            font-size: 15px;
+            background-color: green;
             color: white;
             text-transform: uppercase;
             border-radius: 25px;
-            background: green;
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
             margin: 10px 0;
-            padding: 0 25px;
-            border: none;
-            outline: none;
-        }
-
-        .forgot-div {
-            font-size: 13px;
-            color: #666;
-            width: 85%;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .mid{
-            width: 85%;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 70%;
-                /* display: flex; */
-                /* flex-direction: column; */
-            }
-
-            .wrapper {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .img-div {
-                width: 100%;
-                padding-bottom: 20px;
-            }
-
-            h2 {
-                font-size: 20px;
-            }
-
-            .mid{
-                align-items: center;
-            }
-
-            .form{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-
-
-            input[type=text],
-            input[type=password],
-            .btn-info {
-                width: 100%;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                width: 90%;
-            }
-
-            h2 {
-                font-size: 18px;
-            }
-
-            .mid{
-                align-items: center;
-            }
-
-            .form{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                
-            }
-
-            input[type=text],
-            input[type=password],
-            .btn-info {
-                width: 100%;
-                font-size: 14px;
-                text-align: center;
-            }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="wrapper">
-        <div class="img-div">
-            <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="Logo" style="height:205px; width:230px">        
+    <div class="container">
+        <div class="wrapper">
+            <div class="img-div">
+                <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="Logo" style="height:205px; width:230px">        
+            </div>
+            <form class="form" id="loginForm">
+                <h2 style="color: white;">Member Login</h2>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button class="btn-info" type="submit">Login</button>
+            </form>
         </div>
-        <form class="form">
-            <h2>Member Login</h2>
-            <input class="mid" type="text" name="username" placeholder="Username" required="">
-            <input class="mid" type="password" name="password" placeholder="Password" required="">
-            <button class="btn-info"><a href="./index.html">Login</a></button>
-            <div class="forgot-div">
-                <a href="#">Forgot password?</a>
-            </div>            
-        </form>
     </div>
-</div>
 
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent page refresh
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Sample users for testing
+            const users = [
+                { id: 1, name: 'Akash Verma', role: 'tenant', email: 'akash@example.com', phone: '+91 98765XXXXX', profilePhoto: 'https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png', username: 'akash', password: 'tenant123' },
+                { id: 2, name: 'Rohit Sharma', role: 'landlord', email: 'rohit@example.com', phone: '+91 98765YYYYY', profilePhoto: 'https://www.pngitem.com/pimgs/m/543-5431496_hotel-room-icon-clipart-png-download-hotel-room.png', username: 'rohit', password: 'landlord123' }
+            ];
+
+            // Find the user in the list
+            const user = users.find(u => u.username === username && u.password === password);
+
+            if (user) {
+                // Store user info in localStorage
+                localStorage.setItem('user', JSON.stringify(user));
+
+                // Redirect based on user role
+                if (user.role === 'tenant') {
+                    window.location.href = 'tenant_dashboard.html';
+                } else if (user.role === 'landlord') {
+                    window.location.href = 'landlord_dashboard.html';
+                }
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
 </body>
 </html>

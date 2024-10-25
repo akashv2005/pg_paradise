@@ -147,7 +147,8 @@
         // Event listener for form submission
         document.getElementById('checkout-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Order placed successfully! Thank you for choosing PG Paradise.');
+            setTimeout(()=>{
+            alert('Order placed successfully! Thank you for choosing PG Paradise.');},2000)
         });
 
         // Run the function on page load
